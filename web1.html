@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naitik Garg - CS Engineering Student</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dark: #2d3436;
+            --primary: #2ecc71;
+            --light: #f5f6fa;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        .profile-container {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 2rem auto;
+            border: 4px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            background: var(--dark);
+            padding: 1.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        section {
+            padding: 8rem 2rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), #27ae60);
+            color: white;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Navbar() {
+            return (
+                <nav className="navbar">
+                    <ul className="nav-links">
+                        <li><a className="nav-link" href="#home">Home</a></li>
+                        <li><a className="nav-link" href="#about">About</a></li>
+                        <li><a className="nav-link" href="#skills">Skills</a></li>
+                        <li><a className="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            );
+        }
+
+        function Hero() {
+            const proPhoto = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYAB..."; // Replace with your base64
+            
+            return (
+                <section className="hero" id="home">
+                    <div className="profile-container">
+                        <img 
+                            src={proPhoto} 
+                            alt="Naitik Garg Professional Photo" 
+                            className="profile-img"
+                        />
+                    </div>
+                    <h1>Naitik Garg</h1>
+                    <h3>Computer Science & Engineering Student</h3>
+                    <p>JECRC University</p>
+                    <div className="social-links">
+                        <a href="#"><i className="fas fa-envelope"></i></a>
+                        <a href="#"><i className="fas fa-phone"></i></a>
+                    </div>
+                </section>
+            );
+        }
+
+        function Skills() {
+            return (
+                <section id="skills">
+                    <h2>Technical Skills</h2>
+                    <div className="skills-grid">
+                        <div className="skill-card">
+                            <i className="fab fa-html5 fa-2x"></i>
+                            <h3>HTML5</h3>
+                            <p>Semantic Web Structure</p>
+                        </div>
+                        <div className="skill-card">
+                            <i className="fab fa-css3-alt fa-2x"></i>
+                            <h3>CSS3</h3>
+                            <p>Responsive Design</p>
+                        </div>
+                        <div className="skill-card">
+                            <i className="fab fa-js fa-2x"></i>
+                            <h3>JavaScript</h3>
+                            <p>ES6+ Features</p>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function Contact() {
+            return (
+                <section id="contact">
+                    <h2>Contact Details</h2>
+                    <div className="contact-info">
+                        <p>
+                            <i className="fas fa-envelope"></i>
+                            gargnaitik9149ji@gmail.com
+                        </p>
+                        <p>
+                            <i className="fas fa-phone"></i>
+                            +91 9149261868
+                        </p>
+                    </div>
+                </section>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <Navbar />
+                    <Hero />
+                    <Skills />
+                    <Contact />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
